@@ -15,14 +15,20 @@ class ProductCategoryController extends Controller
     public function index(Request $request)
     {
         return response()->json(
-            $this->service->getPaginatedCategories($request->input('per_page', 6))
+            $this->service->getPaginatedCategories($request->input('per_page', 6)),
+            200,
+            [],
+            JSON_PRETTY_PRINT
         );
     }
 
     public function withProducts(Request $request)
     {
         return response()->json(
-            $this->service->getCategoriesWithProducts($request->input('per_page', 6))
+            $this->service->getCategoriesWithProducts($request->input('per_page', 6)),
+            200,
+            [],
+            JSON_PRETTY_PRINT
         );
     }
 
